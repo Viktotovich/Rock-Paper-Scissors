@@ -12,23 +12,15 @@
     <!--The JS script starts on this line-->
     <script>
         // The algorithm of the game: 
- 
-  
-       
-        // RETURN results for later use, and use the previous function inside a new one to loop the game
-  
-        // DISPLAY winner and loser at the end of the game
-        // TRACKS the score 
-
 
     // Create a variable for computer calculation 
     let computerCalculation;
 
 
-    // That number is then divided by 33; 0 to 33 is scissors, <33 to 66 is paper, and <66 to 99 is rock
+    // computerChoice is created globally
     let computerChoice;
     
-    // User input is.. input
+    // User input is defined globally, but has to be changeable (so the value is defined only within the loop)
     let playerChoice;
 
     //Track the wins
@@ -40,13 +32,15 @@
     // The computer randomly generates a number from 0 to 99
     computerCalculation = Math.floor(Math.random() * 100);
 
-    // we give these numbers a meaning 99/33
+    // That number is then divided by 33; 0 to 33 is scissors, <33 to 66 is paper, and <66 to 99 is rock
      if (computerCalculation <= 33) {
         computerChoice = "scissors";
-    } else if (computerCalculation >33 && computerCalculation <=66){    computerChoice = "paper"; 
+    } else if (computerCalculation >33 && computerCalculation <=66){    
+        computerChoice = "paper"; 
     } else {
         computerChoice = "rock";
     }
+
     // the player is asked for the choice
     // Player inputs 1 of the 3 options: Rock Paper or Scissors
         let playerInput = prompt("Choose Rock | Paper | Scissors", " ");
