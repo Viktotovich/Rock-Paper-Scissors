@@ -20,15 +20,15 @@
     <button id="scissors">Scissors</button>
 </div>
 
-<div class="playerChoice"></div>
-<div class="computerChoice"></div>
+<div class="displayContainer">
+    <div class="roundResultDisplay"></div>
+</div>
 
 <div class="afterLoss"></div>
 <div class="afterWin"></div>
 
 <button class="playAgain"></button>
 
-    <script src="script.js"></script>
 
     <script>
     // variable for computer calculation for the function
@@ -44,12 +44,34 @@
     let computerVictories = 0;
     let playerVictories = 0;
 
-    function winner() {
+    // defining DOM elements to modify in the functions 
+    const displayContainer = document.querySelector(".displayContainer");
+    const roundResultDisplay = document.querySelector(".roundResultDisplay");
+    const choiceContainer = document.querySelector(".container");
+        choiceContainer.addEventListener("click", winner);
+
+    // Result display 
+    const playerScore = document.querySelector(".playerScore");
+    const computerScore = document.querySelector(".computerScore");
+    const pointsToWin = document.querySelector(".pointsToWin");
+
+     function winner(e) {
+        playerChoice = e.target.id;
         computerChoiceGenerator();
-        let choiceContainer = document.querySelector(".container");
-        choiceContainer.addEventListener("click", () => {
-            
-        })
+        // evaluate comp choice vs user choice 
+        if (playerChoice === computerChoice) {
+            roundResultDisplay.textContent = "You chose " + playerChoice + " while the computer also chose " + computerChoice + " it's a draw this round!"
+            //add a score display
+            displayContainer.appendChild(roundResultDisplay);
+        }
+        switch (playerChoice) {
+            case "scissors":
+                if (computerChoice === "rock") {
+                    ++computerVictories;
+                    roundResultDisplay.textContent = "You chose " +playerChoice + " while the computer chose " + computerChoice + ".";
+                    victoryDisplay();
+                }
+        }
     }
 
 
@@ -66,7 +88,13 @@
         computerChoice = "rock";
         }
     }
-
+    
+    function victoryDisplay() {
+        computerScore.textContent = "The computer has " + computerVictories + " points.";
+        playerScore.textContent = "You have " + playerVictories + " points.";
+        pointsToWin.textContent = "You need just " + (5 - playerVictories) + " more points to win!";
+    }
+    
     </script>
    
 </body>
