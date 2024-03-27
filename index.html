@@ -4,12 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors game</title>
+    <link rel="styles" href="styles.css">
 </head>
-
-<!--This game (at the moment of writing) is playable only on the console-->
 <body>
+
+<h1 class="mainHeader">Rock, Paper, & Scissors</h1>
+
+<div class="playerScore"></div>
+<div class="computerScore"></div>
+<div class="pointsToWin"></div>
+
+<div class="container">
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+</div>
+
+<div class="playerChoice"></div>
+<div class="computerChoice"></div>
+
+<div class="afterLoss"></div>
+<div class="afterWin"></div>
+
+<button class="playAgain"></button>
+
     <script src="script.js"></script>
 
+    <script>
+    // variable for computer calculation for the function
+    let computerCalculation;
+
+    // define computer choice globally
+    let computerGeneratedChoice;
+
+    //define user input globally
+    let playerGeneratedChoice;
+
+    // track the wins
+    let computerVictories = 0;
+    let playerVictories = 0;
+
+    function winner() {
+        computerChoiceGenerator();
+        let choiceContainer = document.querySelector(".container");
+        choiceContainer.addEventListener("click", () => {
+            
+        })
+    }
+
+
+    function computerChoiceGenerator() {
+        // Random number between 0 and 99 
+        computerCalculation = Math.floor(Math.random() * 100);
+
+        //divide number into 3 parts, to feign a computer choice
+        if (computerCalculation <= 33) {
+        computerChoice = "scissors";
+        } else if (computerCalculation >33 && computerCalculation <=66){    
+        computerChoice = "paper"; 
+        } else {
+        computerChoice = "rock";
+        }
+    }
+
+    </script>
    
 </body>
 </html>
