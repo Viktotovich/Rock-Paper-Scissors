@@ -129,8 +129,8 @@
    function restartGame() { 
        playerVictories = 0;
        computerVictories = 0;
-       afterLoss.remove();
-       afterWin.remove();
-       playAgain.remove();
+       afterLoss.textContent = '';
+       afterWin.textContent = '';
+       playAgain.textContent = '';
    }
 
