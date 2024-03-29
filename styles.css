@@ -1,0 +1,37 @@
+.headerContainer {
+    background-color: lightblue;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 50px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #add8e6;
+    border-radius: 12px;
+}
+
+.scoreCard {
+    margin: 20px 0 30px 0;
+}
+
+body {
+    background-color: #AEE6C9;
+}
+
+.displayContainer {
+    display: flex;
+    justify-content: center;
+    border: black solid 1px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+
+

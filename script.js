@@ -26,11 +26,15 @@
    // Post Result Display
    const afterLoss = document.querySelector(".afterLoss");
    const afterWin = document.querySelector(".afterWin");
-   const playAgain = document.querySelector(".playAgain");
+   const playAgain = document.querySelector(".playAgain")
 
     function winner(e) {
        playerChoice = e.target.id;
        computerChoiceGenerator();
+       // do not let the player keep playing after 5 points have been achieved 
+       if (computerVictories == 5 || playerVictories == 5) {
+        alert("Game over, please restart the game to keep playing")
+       } else {
        // evaluate comp choice vs user choice 
        if (playerChoice === computerChoice) {
            roundResultDisplay.textContent = "You chose " + playerChoice + " while the computer also chose " + computerChoice + " it's a draw this round!"
@@ -75,6 +79,7 @@
                }
        }
        scoreCounter();
+    }
    }
 
 
@@ -107,8 +112,8 @@
    }
    
    function victoryDisplay() {
-       computerScore.textContent = "The computer has " + computerVictories + " points.";
-       playerScore.textContent = "You have " + playerVictories + " points.";
+       computerScore.textContent = "The computer has " + computerVictories + " point(s).";
+       playerScore.textContent = "You have " + playerVictories + " point(s).";
        pointsToWin.textContent = "You need just " + (5 - playerVictories) + " more points to win!";
    }
 
