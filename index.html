@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors game</title>
     <link rel="styles" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -29,73 +30,6 @@
 
 <button class="playAgain"></button>
 
-
-    <script>
-    // variable for computer calculation for the function
-    let computerCalculation;
-
-    // define computer choice globally
-    let computerGeneratedChoice;
-
-    //define user input globally
-    let playerGeneratedChoice;
-
-    // track the wins
-    let computerVictories = 0;
-    let playerVictories = 0;
-
-    // defining DOM elements to modify in the functions 
-    const displayContainer = document.querySelector(".displayContainer");
-    const roundResultDisplay = document.querySelector(".roundResultDisplay");
-    const choiceContainer = document.querySelector(".container");
-        choiceContainer.addEventListener("click", winner);
-
-    // Result display 
-    const playerScore = document.querySelector(".playerScore");
-    const computerScore = document.querySelector(".computerScore");
-    const pointsToWin = document.querySelector(".pointsToWin");
-
-     function winner(e) {
-        playerChoice = e.target.id;
-        computerChoiceGenerator();
-        // evaluate comp choice vs user choice 
-        if (playerChoice === computerChoice) {
-            roundResultDisplay.textContent = "You chose " + playerChoice + " while the computer also chose " + computerChoice + " it's a draw this round!"
-            //add a score display
-            displayContainer.appendChild(roundResultDisplay);
-        }
-        switch (playerChoice) {
-            case "scissors":
-                if (computerChoice === "rock") {
-                    ++computerVictories;
-                    roundResultDisplay.textContent = "You chose " +playerChoice + " while the computer chose " + computerChoice + ".";
-                    victoryDisplay();
-                }
-        }
-    }
-
-
-    function computerChoiceGenerator() {
-        // Random number between 0 and 99 
-        computerCalculation = Math.floor(Math.random() * 100);
-
-        //divide number into 3 parts, to feign a computer choice
-        if (computerCalculation <= 33) {
-        computerChoice = "scissors";
-        } else if (computerCalculation >33 && computerCalculation <=66){    
-        computerChoice = "paper"; 
-        } else {
-        computerChoice = "rock";
-        }
-    }
-    
-    function victoryDisplay() {
-        computerScore.textContent = "The computer has " + computerVictories + " points.";
-        playerScore.textContent = "You have " + playerVictories + " points.";
-        pointsToWin.textContent = "You need just " + (5 - playerVictories) + " more points to win!";
-    }
-    
-    </script>
    
 </body>
 </html>
